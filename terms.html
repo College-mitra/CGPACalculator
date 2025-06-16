@@ -1,0 +1,84 @@
+<!-- terms.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Terms & Conditions - GPA Tool</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f0f8ff;
+      color: #333;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      color: #0077b6;
+    }
+    .accordion {
+      background-color: #e0f7ff;
+      color: #333;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      text-align: left;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      transition: 0.4s;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .active, .accordion:hover {
+      background-color: #d0efff;
+    }
+
+    .panel {
+      padding: 0 18px;
+      display: none;
+      background-color: white;
+      overflow: hidden;
+      border-left: 4px solid #0077b6;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+ <li><a href="home.html">Home</a></li>
+  <div class="container">
+    <h1>Terms & Conditions</h1>
+
+    <button class="accordion">1. Usage of Service</button>
+    <div class="panel">
+      <p>This tool is free for students. It is intended for educational purposes only and should not be used for official grading.</p>
+    </div>
+
+    <button class="accordion">2. Data Privacy</button>
+    <div class="panel">
+      <p>No personal data is collected. All your GPA input is stored locally in your browser and is not transmitted to any server.</p>
+    </div>
+
+    <button class="accordion">3. Accuracy Disclaimer</button>
+    <div class="panel">
+      <p>We strive for accuracy, but we are not responsible for any grading errors. Always cross-check with your university's official GPA calculations.</p>
+    </div>
+  </div>
+
+  <script>
+    const acc = document.querySelectorAll(".accordion");
+    acc.forEach(btn => {
+      btn.addEventListener("click", function () {
+        this.classList.toggle("active");
+        const panel = this.nextElementSibling;
+        panel.style.display = panel.style.display === "block" ? "none" : "block";
+      });
+    });
+  </script>
+</body>
+</html>
