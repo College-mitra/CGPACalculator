@@ -134,33 +134,28 @@ body.dark-mode .input-group {
       <canvas id="cgpaChart" width="400" height="200"></canvas>
       <button onclick="exportPDF()">📄 Export PDF</button>
     </div>
-    <div class="card">
-  <h2>🎯 SGPA to Percentage Calculator</h2>
+
+
+<div class="card">
+  <h2>SGPA to Percentage Converter</h2>
   <div class="input-group">
-    SGPA: <input type="number" id="sgpa-input" min="0" max="10" step="0.01">
-    <button onclick="convertSGPAToPercentage()">🎓 Convert</button>
+    Enter SGPA: <input type="number" min="0" max="10" step="0.50" id="sgpa-input">
+    <button onclick="convertSGPAToPercentage()">🎯 Convert</button>
   </div>
   <div class="result" id="percentage-result"></div>
-  <p style="font-size: 0.9em; color: #555; margin-top: 10px;">
-    ⚠️ As per university rule: <strong>(SGPA – 0.50) × 10</strong>
-  </p>
 </div>
 
-<div class="card" style="background-color: #e3f2fd; border-left: 5px solid #0077b6; margin-top: 30px;">
-  <h3 style="color: #0077b6;">🎓 University Official Notice</h3>
-  <p style="font-size: 0.95em; color: #333; line-height: 1.6;">
-    As per the official guideline issued by the Examination Cell, the percentage equivalent of SGPA is calculated using the formula: 
-    <strong>(SGPA – 0.50) × 10</strong>. 
-    This formula is applicable to all undergraduate programs from the academic session 2022–2023 onwards.
-  </p>
-  <p style="font-size: 0.9em; color: #666; font-style: italic;">
-    Please contact the Controller of Examinations for clarification or any program-specific adjustments.
-  </p>
-</div>
+
+<p style="font-size: 0.9em; color: #888; margin-top: 10px;">
+  ⚠️ This percentage is calculated using your university’s official formula:
+ Refer to your university notice for confirmation.
+</p>
+
 
   </div>
 
-  <script>
+ 
+ <script>
     const gradeToPoint = { 'O': 10, 'E': 9, 'A': 8, 'B': 7, 'C': 6, 'D': 5, 'F': 2 };
     let cgpaChart = null;
 
@@ -327,7 +322,8 @@ body.dark-mode .input-group {
 
     window.onload = () => loadData();
 
-    function convertSGPAToPercentage() {
+
+function convertSGPAToPercentage() {
   const sgpa = parseFloat(document.getElementById('sgpa-input').value);
   if (!isNaN(sgpa)) {
     const percentage = ((sgpa - 0.50) * 10).toFixed(2);
@@ -336,6 +332,7 @@ body.dark-mode .input-group {
     document.getElementById('percentage-result').innerText = `⚠️ Please enter a valid SGPA.`;
   }
 }
+
 
   </script>
 </body>
