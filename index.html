@@ -159,6 +159,17 @@
 }
 
 <!-- added part -->
+/* Show only on small screens (mobile/tablet) */
+.mobile-only {
+  display: block;
+}
+
+/* Hide on screens larger than 768px (desktop) */
+@media (min-width: 768px) {
+  .mobile-only {
+    display: none;
+  }
+}
 
 /* Always hide hamburger icon by default (desktop) */
 .hamburger {
