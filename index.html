@@ -158,13 +158,61 @@
   color: var(--highlight);
 }
 
+<!-- added part -->
+
+/* Always hide hamburger icon by default (desktop) */
+.hamburger {
+  display: none;
+}
+
+/* Show hamburger only on small screens */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: auto;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    position: fixed;
+    top: 60px;
+    right: -250px;
+    width: 200px;
+    background-color: #e0f7ff;
+    padding: 20px;
+    transition: right 0.3s ease;
+    z-index: 1000;
+  }
+
+  .nav-links.show {
+    right: 0;
+  }
+
+  .nav-links li {
+    margin-bottom: 15px;
+  }
+
+  .navbar {
+    flex-wrap: wrap;
+  }
+}
+
+
 
   </style>
 </head>
 <body>
 
+<!-- added part -->
 <nav class="navbar">
   <div class="logo">GPA Tool</div>
+
+  <!-- Hamburger icon (☰) -->
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+  <!-- Navigation links -->
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
@@ -179,7 +227,7 @@
   <header>
     <h1>🎓 SGPA & CGPA Calculator</h1>
     <p>Use our modern and accurate tool to calculate your SGPA and CGPA, track academic progress, and export results with ease.</p>
-    <a href="calculator.html"><button class="btn">Start Calculating</button></a>
+    <a href="calculator.html"><button class="btn">Strart Calculating</button></a>
   </header>
 
   <section id="features" class="features">
@@ -239,6 +287,16 @@
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("load", handleScroll);
   </script>
+
+
+<!-- added part --> 
+<script>
+  function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('show');
+  }
+</script>
+
 
 </body>
 </html>
